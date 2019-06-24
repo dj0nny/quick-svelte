@@ -1,23 +1,24 @@
 <script>
-	import { onMount } from 'svelte'
+import Todo from './components/Todo.svelte'
+import Header from './components/Header.svelte'
 
-	let todos = []
 
-	onMount(async() => {
-		const res = await fetch('http://jsonplaceholder.typicode.com/todos')
-		todos = await res.json()
-	})
+import { onMount } from 'svelte'
+
+let todos = []
+let done
+let undone
+
+onMount(async() => {
+	const res = await fetch('http://jsonplaceholder.typicode.com/todos')
+	todos = await res.json()
+	done = todos.filter((todo) => todo.completed).length
+	undone = todos.filter((todo) => !todo.completed).length
+})
 
 </script>
 
 <style>
-
-#header {
-    display: flex;
-    flex: 1;
-    border-bottom: 1px solid #000;
-}
-
 .todos {
 	margin-top: 50px;
 }
@@ -30,19 +31,11 @@
 
 </style>
 
-<div id="header">
-	<h1>Quick Svelte</h1>
-</div>
-
+<Header appTitle="Quick Svelte" done={done} undone={undone}></Header>
 <div class="todos">
 	{#each todos as todo}		
 		<div class="todo">
-			<div class="todo-name">
-				{todo.title}
-			</div>
-			<div class="status">
-				<input type="checkbox" bind:checked={todo.completed}>
-			</div>
+			<Todo todo={todo}></Todo>
 		</div>
 	{/each}
 </div>
