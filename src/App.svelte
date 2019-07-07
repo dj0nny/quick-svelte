@@ -10,7 +10,7 @@ let done
 let undone
 
 onMount(async() => {
-	const res = await fetch('http://jsonplaceholder.typicode.com/todos')
+	const res = await fetch('https://jsonplaceholder.typicode.com/todos')
 	todos = await res.json()
 	done = todos.filter((todo) => todo.completed).length
 	undone = todos.filter((todo) => !todo.completed).length
