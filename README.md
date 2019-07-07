@@ -1,5 +1,10 @@
 # Quick Svelte
 
+[![npm version](https://badge.fury.io/js/svelte.svg)](https://badge.fury.io/js/svelte)
+[![svelte](https://img.shields.io/badge/build%20with-svelte-blue.svg)](https://img.shields.io/badge/build%20with-svelte-blue.svg)
+
+
+
 ## Overview
 
 This is my first Svelte app. It is a simple todos app for chilling with Svelte
@@ -32,3 +37,7 @@ npm run dev
 ```
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+
+## Development
+
+A built version of this repository is developed on [Now](https://zeit.co) at this URL: https://quick-svelte.dj0nny.now.sh/
